@@ -2,12 +2,40 @@ package com.phoenixencryption.main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.phoenixencryption.main.decrypt.DecryptionFrame;
 
 public class PEM {
 	private static final double space = 0.2947846297459518;
+	private static final double question_mark = 0.9091765735243177;
+	private static final double exclamation_point = 0.038311049281382514;
+	private static final double peroid = 0.35506329421195004;
+	private static final double comma = 0.9136037756493114;
+	private static final double slash = 0.8146963536372602;
+	private static final double apostrophe = 0.714273983200807;
+	private static final double quotation = 0.5505672109283977;
+	private static final double colon = 0.59662968781995;
+	private static final double semicolon = 0.5526017820841983;
+	private static final double left_parenthesis = 0.7951875606351154;
+	private static final double right_parenthesis = 0.2935546698082452;
+	private static final double left_bracket = 0.5694564551555293;
+	private static final double right_bracket = 0.9183680057384292;
+	private static final double left_curly_bracket = 0.9040661827491638;
+	private static final double right_curly_bracket = 0.37687412980650836;
+	private static final double underscore = 0.9100409696143726;
+	private static final double hyphen = 0.2773932585698323;
+	private static final double zero = 0.6852954009352914;
+	private static final double one = 0.844463148781037;
+	private static final double two = 0.6977315889117128;
+	private static final double three = 0.3477314875315566;
+	private static final double four = 0.4705777321409328;
+	private static final double five = 0.6627723563825239;
+	private static final double six = 0.8873787071624216;
+	private static final double seven = 0.450061911176333;
+	private static final double eight = 0.3022073462200098;
+	private static final double nine = 0.0731873853060021;
 	private static final double a = 0.3974135327840922;
 	private static final double b = 0.0260455201722247;
 	private static final double c = 0.887431049379377;
@@ -65,6 +93,7 @@ public class PEM {
 	private static final String[] encryptedChar = new String[9999];
 	private static double[] decryptedNum;
 	private static final char[] ch = new char[9999];
+	private static char charArray[] = null;
 	private static int lines = 0;
 	public static String finalEncryption = "";
 	public static String finalDecryption = "";
@@ -96,11 +125,65 @@ public class PEM {
 
 	private static void encryptChar() {
 		for (int i = 0; i <= lines - 1; i++) {
-			char arr[] = input[i].toCharArray();
-			for (int j = 0; j <= arr.length - 1; j++) {
-				ch[j] = arr[j];
+			charArray = input[i].toCharArray();
+			for (int j = 0; j <= charArray.length - 1; j++) {
+				ch[j] = charArray[j];
 				if (Character.isWhitespace(ch[j])) {
 					encryptedChar[j] = String.valueOf(PEM.space);
+				} else if (ch[j] == '?') {
+					encryptedChar[j] = String.valueOf(PEM.question_mark);
+				} else if (ch[j] == '!') {
+					encryptedChar[j] = String.valueOf(PEM.exclamation_point);
+				} else if (ch[j] == '.') {
+					encryptedChar[j] = String.valueOf(PEM.peroid);
+				} else if (ch[j] == ',') {
+					encryptedChar[j] = String.valueOf(PEM.comma);
+				} else if (ch[j] == '/') {
+					encryptedChar[j] = String.valueOf(PEM.slash);
+				} else if (ch[j] == '\'') {
+					encryptedChar[j] = String.valueOf(PEM.apostrophe);
+				} else if (ch[j] == '\"') {
+					encryptedChar[j] = String.valueOf(PEM.quotation);
+				} else if (ch[j] == ':') {
+					encryptedChar[j] = String.valueOf(PEM.colon);
+				} else if (ch[j] == ';') {
+					encryptedChar[j] = String.valueOf(PEM.semicolon);
+				} else if (ch[j] == '(') {
+					encryptedChar[j] = String.valueOf(PEM.left_parenthesis);
+				} else if (ch[j] == ')') {
+					encryptedChar[j] = String.valueOf(PEM.right_parenthesis);
+				} else if (ch[j] == '[') {
+					encryptedChar[j] = String.valueOf(PEM.left_bracket);
+				} else if (ch[j] == ']') {
+					encryptedChar[j] = String.valueOf(PEM.right_bracket);
+				} else if (ch[j] == '{') {
+					encryptedChar[j] = String.valueOf(PEM.left_curly_bracket);
+				} else if (ch[j] == '}') {
+					encryptedChar[j] = String.valueOf(PEM.right_curly_bracket);
+				} else if (ch[j] == '_') {
+					encryptedChar[j] = String.valueOf(PEM.underscore);
+				} else if (ch[j] == '-') {
+					encryptedChar[j] = String.valueOf(PEM.hyphen);
+				} else if (ch[j] == '0') {
+					encryptedChar[j] = String.valueOf(PEM.zero);
+				} else if (ch[j] == '1') {
+					encryptedChar[j] = String.valueOf(PEM.one);
+				} else if (ch[j] == '2') {
+					encryptedChar[j] = String.valueOf(PEM.two);
+				} else if (ch[j] == '3') {
+					encryptedChar[j] = String.valueOf(PEM.three);
+				} else if (ch[j] == '4') {
+					encryptedChar[j] = String.valueOf(PEM.four);
+				} else if (ch[j] == '5') {
+					encryptedChar[j] = String.valueOf(PEM.five);
+				} else if (ch[j] == '6') {
+					encryptedChar[j] = String.valueOf(PEM.six);
+				} else if (ch[j] == '7') {
+					encryptedChar[j] = String.valueOf(PEM.seven);
+				} else if (ch[j] == '8') {
+					encryptedChar[j] = String.valueOf(PEM.eight);
+				} else if (ch[j] == '9') {
+					encryptedChar[j] = String.valueOf(PEM.nine);
 				} else if (ch[j] == 'a') {
 					encryptedChar[j] = String.valueOf(PEM.a);
 				} else if (ch[j] == 'b') {
@@ -207,7 +290,7 @@ public class PEM {
 					encryptedChar[j] = String.valueOf(PEM.zCap);
 				}
 				if (j > 0) {
-					finalEncryption = finalEncryption + "," + encryptedChar[j];
+					finalEncryption = finalEncryption + "`" + encryptedChar[j];
 				} else {
 					finalEncryption = finalEncryption + encryptedChar[j];
 				}
@@ -219,7 +302,7 @@ public class PEM {
 
 	public static void decrypt() {
 		String text = DecryptionFrame.decryptText;
-		String[] splitStrings = text.split(",");
+		String[] splitStrings = text.split("`");
 		decryptedNum = new double[splitStrings.length];
 		for (int i = 0; i <= splitStrings.length - 1; i++) {
 			double num = Double.parseDouble(splitStrings[i]);
@@ -227,6 +310,60 @@ public class PEM {
 			System.out.println(decryptedNum[i]);
 			if (decryptedNum[i] == space) {
 				finalDecryption = finalDecryption + " ";
+			} else if (decryptedNum[i] == PEM.question_mark) {
+				finalDecryption = finalDecryption + "?";
+			} else if (decryptedNum[i] == PEM.exclamation_point) {
+				finalDecryption = finalDecryption + "!";
+			} else if (decryptedNum[i] == PEM.peroid) {
+				finalDecryption = finalDecryption + ".";
+			} else if (decryptedNum[i] == PEM.comma) {
+				finalDecryption = finalDecryption + ",";
+			} else if (decryptedNum[i] == PEM.slash) {
+				finalDecryption = finalDecryption + "/";
+			} else if (decryptedNum[i] == PEM.apostrophe) {
+				finalDecryption = finalDecryption + "'";
+			} else if (decryptedNum[i] == PEM.quotation) {
+				finalDecryption = finalDecryption + "\"";
+			} else if (decryptedNum[i] == PEM.colon) {
+				finalDecryption = finalDecryption + ":";
+			} else if (decryptedNum[i] == PEM.semicolon) {
+				finalDecryption = finalDecryption + ";";
+			} else if (decryptedNum[i] == PEM.left_parenthesis) {
+				finalDecryption = finalDecryption + "(";
+			} else if (decryptedNum[i] == PEM.right_parenthesis) {
+				finalDecryption = finalDecryption + ")";
+			} else if (decryptedNum[i] == PEM.left_bracket) {
+				finalDecryption = finalDecryption + "[";
+			} else if (decryptedNum[i] == PEM.right_bracket) {
+				finalDecryption = finalDecryption + "]";
+			} else if (decryptedNum[i] == PEM.left_curly_bracket) {
+				finalDecryption = finalDecryption + "{";
+			} else if (decryptedNum[i] == PEM.right_curly_bracket) {
+				finalDecryption = finalDecryption + "}";
+			} else if (decryptedNum[i] == PEM.underscore) {
+				finalDecryption = finalDecryption + "_";
+			} else if (decryptedNum[i] == PEM.hyphen) {
+				finalDecryption = finalDecryption + "-";
+			} else if (decryptedNum[i] == PEM.zero) {
+				finalDecryption = finalDecryption + "0";
+			} else if (decryptedNum[i] == PEM.one) {
+				finalDecryption = finalDecryption + "1";
+			} else if (decryptedNum[i] == PEM.two) {
+				finalDecryption = finalDecryption + "2";
+			} else if (decryptedNum[i] == PEM.three) {
+				finalDecryption = finalDecryption + "3";
+			} else if (decryptedNum[i] == PEM.four) {
+				finalDecryption = finalDecryption + "4";
+			} else if (decryptedNum[i] == PEM.five) {
+				finalDecryption = finalDecryption + "5";
+			} else if (decryptedNum[i] == PEM.six) {
+				finalDecryption = finalDecryption + "6";
+			} else if (decryptedNum[i] == PEM.seven) {
+				finalDecryption = finalDecryption + "7";
+			} else if (decryptedNum[i] == PEM.eight) {
+				finalDecryption = finalDecryption + "8";
+			} else if (decryptedNum[i] == PEM.nine) {
+				finalDecryption = finalDecryption + "9";
 			} else if (decryptedNum[i] == PEM.a) {
 				finalDecryption = finalDecryption + "a";
 			} else if (decryptedNum[i] == PEM.b) {
@@ -279,8 +416,82 @@ public class PEM {
 				finalDecryption = finalDecryption + "y";
 			} else if (decryptedNum[i] == PEM.z) {
 				finalDecryption = finalDecryption + "z";
+			} else if (decryptedNum[i] == PEM.aCap) {
+				finalDecryption = finalDecryption + "A";
+			} else if (decryptedNum[i] == PEM.bCap) {
+				finalDecryption = finalDecryption + "B";
+			} else if (decryptedNum[i] == PEM.cCap) {
+				finalDecryption = finalDecryption + "C";
+			} else if (decryptedNum[i] == PEM.dCap) {
+				finalDecryption = finalDecryption + "D";
+			} else if (decryptedNum[i] == PEM.eCap) {
+				finalDecryption = finalDecryption + "E";
+			} else if (decryptedNum[i] == PEM.fCap) {
+				finalDecryption = finalDecryption + "F";
+			} else if (decryptedNum[i] == PEM.gCap) {
+				finalDecryption = finalDecryption + "G";
+			} else if (decryptedNum[i] == PEM.hCap) {
+				finalDecryption = finalDecryption + "H";
+			} else if (decryptedNum[i] == PEM.iCap) {
+				finalDecryption = finalDecryption + "I";
+			} else if (decryptedNum[i] == PEM.jCap) {
+				finalDecryption = finalDecryption + "J";
+			} else if (decryptedNum[i] == PEM.kCap) {
+				finalDecryption = finalDecryption + "K";
+			} else if (decryptedNum[i] == PEM.lCap) {
+				finalDecryption = finalDecryption + "L";
+			} else if (decryptedNum[i] == PEM.mCap) {
+				finalDecryption = finalDecryption + "M";
+			} else if (decryptedNum[i] == PEM.nCap) {
+				finalDecryption = finalDecryption + "N";
+			} else if (decryptedNum[i] == PEM.oCap) {
+				finalDecryption = finalDecryption + "O";
+			} else if (decryptedNum[i] == PEM.pCap) {
+				finalDecryption = finalDecryption + "P";
+			} else if (decryptedNum[i] == PEM.qCap) {
+				finalDecryption = finalDecryption + "Q";
+			} else if (decryptedNum[i] == PEM.rCap) {
+				finalDecryption = finalDecryption + "R";
+			} else if (decryptedNum[i] == PEM.sCap) {
+				finalDecryption = finalDecryption + "S";
+			} else if (decryptedNum[i] == PEM.tCap) {
+				finalDecryption = finalDecryption + "T";
+			} else if (decryptedNum[i] == PEM.uCap) {
+				finalDecryption = finalDecryption + "U";
+			} else if (decryptedNum[i] == PEM.vCap) {
+				finalDecryption = finalDecryption + "V";
+			} else if (decryptedNum[i] == PEM.wCap) {
+				finalDecryption = finalDecryption + "W";
+			} else if (decryptedNum[i] == PEM.xCap) {
+				finalDecryption = finalDecryption + "X";
+			} else if (decryptedNum[i] == PEM.yCap) {
+				finalDecryption = finalDecryption + "Y";
+			} else if (decryptedNum[i] == PEM.zCap) {
+				finalDecryption = finalDecryption + "Z";
 			}
 			System.out.println(finalDecryption);
 		}
+	}
+
+	public static void randomNumGenerator() {
+		Random r = new Random();
+		double num = r.nextDouble();
+		System.out.println(num);
+	}
+
+	public static void reloadPEM() {
+		for (int i = 0; i <= input.length - 1; i++) {
+			input[i] = null;
+		}
+		for (int i = 0; i <= encryptedChar.length - 1; i++) {
+			encryptedChar[i] = null;
+		}
+		for (int i = 0; i <= ch.length - 1; i++) {
+			ch[i] = ' ';
+		}
+		decryptedNum = null;
+		lines = 0;
+		finalEncryption = "";
+		finalDecryption = "";
 	}
 }

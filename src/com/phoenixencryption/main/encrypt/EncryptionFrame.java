@@ -19,7 +19,6 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
 import com.phoenixencryption.main.FileWriter;
-import com.phoenixencryption.main.MenuFrame;
 import com.phoenixencryption.main.PEM;
 
 public class EncryptionFrame {
@@ -90,7 +89,8 @@ public class EncryptionFrame {
 		menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EncryptionFrame.disposeFrame();
-				new MenuFrame();
+				text.setText("");
+				PEM.reloadPEM();
 			}
 		});
 		close.setFont(new Font("Arial", Font.BOLD, 15));
@@ -115,5 +115,16 @@ public class EncryptionFrame {
 
 	public static void disposeFrame() {
 		frame.dispose();
+		panel.removeAll();
+	}
+
+	public static boolean isActive() {
+		boolean active;
+		if (frame.isActive()) {
+			active = true;
+		} else {
+			active = false;
+		}
+		return active;
 	}
 }

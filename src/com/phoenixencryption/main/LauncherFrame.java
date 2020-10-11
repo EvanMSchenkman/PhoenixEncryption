@@ -31,4 +31,14 @@ public class LauncherFrame {
 	public static void disposeFrame() {
 		frame.dispose();
 	}
+	
+	public static boolean isActive() {
+		boolean active;
+		if (frame.isActive()) {
+			active = true;
+		} else {
+			active = false;
+		}
+		return active;
+	}
 }
